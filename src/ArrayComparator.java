@@ -13,6 +13,10 @@ public class ArrayComparator {
     }
 
     public static boolean compare(int[][] array, int[][] array2){
+        if(array.length!=array2.length){
+            System.out.print("Niezgodny rozmiar tablic wielowymiarowych, ");
+            return false;
+        }
         for(int i = 0; i<array.length; i++){
             if (check(array[i], array2[i])) {
                 for (int j = 0; j < array[i].length; j++) {
@@ -28,7 +32,10 @@ public class ArrayComparator {
     }
 
     private static boolean check(int[] array, int[] array2){
-        if(array.length==0 || array2.length == 0){
+        if(array==null || array2==null){
+            System.out.print("null, ");
+            return false;
+        }else if(array.length==0 || array2.length == 0){
             System.out.print("Błąd pusta tablica, ");
             return false;
         }else if (array.length!=array2.length){
